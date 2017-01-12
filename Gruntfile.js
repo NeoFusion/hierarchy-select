@@ -1,7 +1,10 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        clean: ['dist'],
+        clean: {
+            dist: 'dist',
+            docs: 'docs/dist'
+        },
         uglify: {
             build: {
                 files: {
@@ -18,10 +21,19 @@ module.exports = function (grunt) {
                     'dist/hierarchy-select.min.css': 'src/hierarchy-select.scss'
                 }
             }
+        },
+        copy: {
+            docs: {
+                expand: true,
+                cwd: 'dist',
+                src: '**',
+                dest: 'docs/dist/'
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-sass');
-    grunt.registerTask('default', ['clean', 'uglify', 'sass']);
+    grunt.registerTask('default', ['clean', 'uglify', 'sass', 'copy']);
 };
