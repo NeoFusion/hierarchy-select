@@ -45,7 +45,7 @@
     }
   }
   @mixin padding-left($level) {
-    li.level-#{$level} > a {
+    li[data-level='#{$level}'] > a {
       padding-left: $level * 20px;
     }
   }
