@@ -29,12 +29,11 @@
     </div>
 </nav>
 <div class="container">
-    <h1>Example</h1>
+    <h2>Live search with hierarchy</h2>
     <div class="panel panel-default">
         <div class="panel-body">
-        <form>
-            <div class="form-group">
-                <div class="btn-group hierarchy-select" data-resize="auto" id="search_form_category">
+            <form>
+                <div class="btn-group hierarchy-select" data-resize="auto" id="example-one">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="selected-label pull-left">&nbsp;</span>
                         <span class="caret"></span>
@@ -113,10 +112,125 @@
                             </li>
                         </ul>
                     </div>
-                    <input class="hidden hidden-field" name="search_form[category]" readonly="readonly" aria-hidden="true" type="text"/>
+                    <input class="hidden hidden-field" name="example_one" readonly="readonly" aria-hidden="true" type="text"/>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
+    </div>
+    <h2>Live search without hierarchy</h2>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form>
+                <div class="btn-group hierarchy-select" data-resize="auto" id="example-two">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="selected-label pull-left">&nbsp;</span>
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu open">
+                        <div class="hs-searchbox">
+                            <input type="text" class="form-control" autocomplete="off">
+                        </div>
+                        <ul class="dropdown-menu inner" role="menu">
+                            <li data-value="" class="active">
+                                <a href="#">All colors</a>
+                            </li>
+                            <li data-value="1">
+                                <a href="#">Red</a>
+                            </li>
+                            <li data-value="2">
+                                <a href="#">Orange</a>
+                            </li>
+                            <li data-value="3">
+                                <a href="#">Yellow</a>
+                            </li>
+                            <li data-value="4">
+                                <a href="#">Green</a>
+                            </li>
+                            <li data-value="5">
+                                <a href="#">Blue</a>
+                            </li>
+                            <li data-value="6">
+                                <a href="#">Purple</a>
+                            </li>
+                            <li data-value="7">
+                                <a href="#">Pink</a>
+                            </li>
+                            <li data-value="8">
+                                <a href="#">Brown</a>
+                            </li>
+                            <li data-value="9">
+                                <a href="#">Black</a>
+                            </li>
+                            <li data-value="10">
+                                <a href="#">Grey</a>
+                            </li>
+                            <li data-value="11">
+                                <a href="#">White</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <input class="hidden hidden-field" name="example_two" readonly="readonly" aria-hidden="true" type="text"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <h2>Simple select</h2>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form>
+                <div class="btn-group hierarchy-select" data-resize="auto" id="example-three">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="selected-label pull-left">&nbsp;</span>
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu open">
+                        <div class="hs-searchbox">
+                            <input type="text" class="form-control" autocomplete="off">
+                        </div>
+                        <ul class="dropdown-menu inner" role="menu">
+                            <li data-value="" class="active">
+                                <a href="#">All colors</a>
+                            </li>
+                            <li data-value="1">
+                                <a href="#">Red</a>
+                            </li>
+                            <li data-value="2">
+                                <a href="#">Orange</a>
+                            </li>
+                            <li data-value="3">
+                                <a href="#">Yellow</a>
+                            </li>
+                            <li data-value="4">
+                                <a href="#">Green</a>
+                            </li>
+                            <li data-value="5">
+                                <a href="#">Blue</a>
+                            </li>
+                            <li data-value="6">
+                                <a href="#">Purple</a>
+                            </li>
+                            <li data-value="7">
+                                <a href="#">Pink</a>
+                            </li>
+                            <li data-value="8">
+                                <a href="#">Brown</a>
+                            </li>
+                            <li data-value="9">
+                                <a href="#">Black</a>
+                            </li>
+                            <li data-value="10">
+                                <a href="#">Grey</a>
+                            </li>
+                            <li data-value="11">
+                                <a href="#">White</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <input class="hidden hidden-field" name="example_three" readonly="readonly" aria-hidden="true" type="text"/>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -125,7 +239,16 @@
 <script src="dist/hierarchy-select.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#search_form_category').hierarchySelect({
+        $('#example-one').hierarchySelect({
+            width: 200
+        });
+        $('#example-two').hierarchySelect({
+            hierarchy: false,
+            width: 200
+        });
+        $('#example-three').hierarchySelect({
+            hierarchy: false,
+            search: false,
             width: 200
         });
     });
