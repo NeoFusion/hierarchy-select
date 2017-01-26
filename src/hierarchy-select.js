@@ -126,12 +126,37 @@
                 }
             }
             this.$searchbox.on('keydown', function (e) {
+                var items,
+                    liActive,
+                    index;
                 switch (e.keyCode) {
                     case 9: // Tab
                         e.preventDefault();
                         e.stopPropagation();
                         that.$menuInner.click();
                         that.$button.focus();
+                        break;
+                    case 13: // Enter
+                        break;
+                    case 27: // Esc
+                        break;
+                    case 38: // Up
+                        e.preventDefault();
+                        items = that.$menuInner.find('li:not(.hidden,.disabled)');
+                        liActive = that.$menuInner.find('.active');
+                        index = items.index(liActive);
+                        if (typeof items[index - 1] !== 'undefined') {
+                            that.$menuInner.find('.active').removeClass('active');
+                        }
+                        break;
+                    case 40: // Down
+                        e.preventDefault();
+                        items = that.$menuInner.find('li:not(.hidden,.disabled)');
+                        liActive = that.$menuInner.find('.active');
+                        index = items.index(liActive);
+                        if (typeof items[index + 1] !== 'undefined') {
+                            that.$menuInner.find('.active').removeClass('active');
+                        }
                         break;
                     default:
                         break;
