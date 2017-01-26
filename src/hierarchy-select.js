@@ -90,6 +90,9 @@
                     $this.toggleClass('dropup', true);
                 }
             });
+            this.$element.on('shown.bs.dropdown', function() {
+                that.$searchbox.focus();
+            });
             this.$element.on('hidden.bs.dropdown', function() {
                 that.$element.toggleClass('dropup', false);
             });
@@ -122,6 +125,18 @@
                     }
                 }
             }
+            this.$searchbox.on('keydown', function (e) {
+                switch (e.keyCode) {
+                    case 9: // Tab
+                        e.preventDefault();
+                        e.stopPropagation();
+                        that.$menuInner.click();
+                        that.$button.focus();
+                        break;
+                    default:
+                        break;
+                }
+            });
             this.$searchbox.on('input propertychange', function (e) {
                 e.preventDefault();
                 var searchString = that.$searchbox.val().toLowerCase();
