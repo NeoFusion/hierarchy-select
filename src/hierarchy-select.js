@@ -235,8 +235,8 @@
     $.fn.hierarchySelect.defaults = {
         width: 'auto',
         height: '208px',
-        hierarchy: false,
-        search: false
+        hierarchy: true,
+        search: true
     };
     $.fn.hierarchySelect.Constructor = HierarchySelect;
 
