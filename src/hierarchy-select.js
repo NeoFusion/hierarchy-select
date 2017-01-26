@@ -10,6 +10,7 @@
         this.$menuInner = this.$menu.children('.inner');
         this.$searchbox = this.$menu.find('input');
         this.$hiddenField = this.$element.children('input');
+        this.previouslySelected = null;
         this.init();
     };
 
@@ -91,6 +92,7 @@
                 }
             });
             this.$element.on('shown.bs.dropdown', function() {
+                that.previouslySelected = that.$menuInner.find('.active');
                 that.$searchbox.focus();
             });
             this.$element.on('hidden.bs.dropdown', function() {
@@ -137,8 +139,19 @@
                         that.$button.focus();
                         break;
                     case 13: // Enter
+                        var selected = that.$menuInner.find('.active');
+                        setTimeout(function() {
+                            that.$button.focus();
+                        }, 0);
+                        selected && that.setSelected(selected);
+                        that.$button.dropdown('toggle');
                         break;
                     case 27: // Esc
+                        e.preventDefault();
+                        e.stopPropagation();
+                        that.$button.focus();
+                        that.previouslySelected && that.setSelected(that.previouslySelected);
+                        that.$button.dropdown('toggle');
                         break;
                     case 38: // Up
                         e.preventDefault();
@@ -147,6 +160,8 @@
                         index = items.index(liActive);
                         if (typeof items[index - 1] !== 'undefined') {
                             that.$menuInner.find('.active').removeClass('active');
+                            items[index - 1].classList.add('active');
+                            processElementOffset(that.$menuInner[0], items[index - 1]);
                         }
                         break;
                     case 40: // Down
@@ -156,6 +171,10 @@
                         index = items.index(liActive);
                         if (typeof items[index + 1] !== 'undefined') {
                             that.$menuInner.find('.active').removeClass('active');
+                            if (items[index + 1]) {
+                                items[index + 1].classList.add('active');
+                                processElementOffset(that.$menuInner[0], items[index + 1]);
+                            }
                         }
                         break;
                     default:
@@ -225,4 +244,12 @@
         $.fn.hierarchySelect = old;
         return this;
     };
+
+    function processElementOffset(parent, element) {
+        if (parent.offsetHeight + parent.scrollTop < element.offsetTop + element.offsetHeight) {
+            parent.scrollTop = element.offsetTop + element.offsetHeight - parent.offsetHeight;
+        } else if (parent.scrollTop > element.offsetTop) {
+            parent.scrollTop = element.offsetTop;
+        }
+    }
 })(jQuery);
