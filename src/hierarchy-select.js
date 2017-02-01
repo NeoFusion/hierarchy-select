@@ -21,6 +21,7 @@
             this.setHeight();
             this.initSelect();
             this.clickListener();
+            this.buttonListener();
             this.searchListener();
         },
         initSelect: function() {
@@ -139,6 +140,52 @@
                     that.setSelected(li);
                 }
             });
+        },
+        buttonListener: function () {
+            var that = this;
+            if (this.options.search) {
+                return;
+            }
+            this.$button.on('keydown', function (e) {
+                switch (e.keyCode) {
+                    case 9: // Tab
+                        if (that.$element.hasClass('open')) {
+                            e.preventDefault();
+                        }
+                        break;
+                    case 13: // Enter
+                        if (that.$element.hasClass('open')) {
+                            e.preventDefault();
+                            that.selectItem();
+                        }
+                        break;
+                    case 27: //Esc
+                        if (that.$element.hasClass('open')) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            that.$button.focus();
+                            that.previouslySelected && that.setSelected(that.previouslySelected);
+                            that.$button.dropdown('toggle');
+                        }
+                        break;
+                    case 38: // Up
+                        if (that.$element.hasClass('open')) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            that.moveUp();
+                        }
+                        break;
+                    case 40: // Down
+                        if (that.$element.hasClass('open')) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            that.moveDown();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            })
         },
         searchListener: function() {
             var that = this;
