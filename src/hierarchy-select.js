@@ -122,6 +122,14 @@
                 if (lowerHeight < dropdownHeight && upperHeight > dropdownHeight) {
                     $this.toggleClass('dropup', true);
                 }
+                var selected = that.$menuInner.find('.active');
+                selected && setTimeout(function() {
+                    var el = selected[0];
+                    var p = selected[0].parentNode;
+                    if (!(p.scrollTop <= el.offsetTop && (p.scrollTop + p.clientHeight) > el.offsetTop + el.clientHeight)) {
+                        el.parentNode.scrollTop = el.offsetTop
+                    }
+                }, 0);
             });
             this.$element.on('shown.bs.dropdown', function() {
                 that.previouslySelected = that.$menuInner.find('.active');
