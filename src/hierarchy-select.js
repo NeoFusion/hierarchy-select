@@ -103,6 +103,9 @@
         selectItem: function () {
             var that = this;
             var selected = this.$menuInner.find('.active');
+            if (selected.hasClass('hidden') || selected.hasClass('disabled')) {
+                return;
+            }
             setTimeout(function() {
                 that.$button.focus();
             }, 0);
