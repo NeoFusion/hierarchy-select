@@ -77,6 +77,37 @@
                 this.$element.trigger('change');
             }
         },
+        moveUp: function () {
+            var items = this.$menuInner.find('li:not(.hidden,.disabled)');
+            var liActive = this.$menuInner.find('.active');
+            var index = items.index(liActive);
+            if (typeof items[index - 1] !== 'undefined') {
+                this.$menuInner.find('.active').removeClass('active');
+                items[index - 1].classList.add('active');
+                processElementOffset(this.$menuInner[0], items[index - 1]);
+            }
+        },
+        moveDown: function () {
+            var items = this.$menuInner.find('li:not(.hidden,.disabled)');
+            var liActive = this.$menuInner.find('.active');
+            var index = items.index(liActive);
+            if (typeof items[index + 1] !== 'undefined') {
+                this.$menuInner.find('.active').removeClass('active');
+                if (items[index + 1]) {
+                    items[index + 1].classList.add('active');
+                    processElementOffset(this.$menuInner[0], items[index + 1]);
+                }
+            }
+        },
+        selectItem: function () {
+            var that = this;
+            var selected = this.$menuInner.find('.active');
+            setTimeout(function() {
+                that.$button.focus();
+            }, 0);
+            selected && this.setSelected(selected);
+            this.$button.dropdown('toggle');
+        },
         clickListener: function() {
             var that = this;
             this.$element.on('show.bs.dropdown', function() {
@@ -128,9 +159,6 @@
                 }
             }
             this.$searchbox.on('keydown', function (e) {
-                var items,
-                    liActive,
-                    index;
                 switch (e.keyCode) {
                     case 9: // Tab
                         e.preventDefault();
@@ -139,12 +167,7 @@
                         that.$button.focus();
                         break;
                     case 13: // Enter
-                        var selected = that.$menuInner.find('.active');
-                        setTimeout(function() {
-                            that.$button.focus();
-                        }, 0);
-                        selected && that.setSelected(selected);
-                        that.$button.dropdown('toggle');
+                        that.selectItem();
                         break;
                     case 27: // Esc
                         e.preventDefault();
@@ -155,27 +178,11 @@
                         break;
                     case 38: // Up
                         e.preventDefault();
-                        items = that.$menuInner.find('li:not(.hidden,.disabled)');
-                        liActive = that.$menuInner.find('.active');
-                        index = items.index(liActive);
-                        if (typeof items[index - 1] !== 'undefined') {
-                            that.$menuInner.find('.active').removeClass('active');
-                            items[index - 1].classList.add('active');
-                            processElementOffset(that.$menuInner[0], items[index - 1]);
-                        }
+                        that.moveUp();
                         break;
                     case 40: // Down
                         e.preventDefault();
-                        items = that.$menuInner.find('li:not(.hidden,.disabled)');
-                        liActive = that.$menuInner.find('.active');
-                        index = items.index(liActive);
-                        if (typeof items[index + 1] !== 'undefined') {
-                            that.$menuInner.find('.active').removeClass('active');
-                            if (items[index + 1]) {
-                                items[index + 1].classList.add('active');
-                                processElementOffset(that.$menuInner[0], items[index + 1]);
-                            }
-                        }
+                        that.moveDown();
                         break;
                     default:
                         break;
