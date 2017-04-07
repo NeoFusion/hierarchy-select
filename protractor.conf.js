@@ -6,18 +6,19 @@ exports.config = {
     './e2e/**/*.spec.js'
   ],
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'phantomjs',
+    'phantomjs.binary.path': require('phantomjs').path,
+    'phantomjs.ghostdriver.cli.args': ['--loglevel=DEBUG']
   },
-  directConnect: true,
-  baseUrl: 'http://localhost:8080/',
+  baseUrl: 'http://localhost:8081/demo',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
     print: function() {}
   },
-  useAllAngular2AppRoots: true,
   onPrepare: function() {
     jasmine.getEnv().addReporter(new SpecReporter());
+    require('./e2e/addons');
   }
 };
