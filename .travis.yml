@@ -1,0 +1,12 @@
+language: node_js
+
+node_js: "6"
+
+addons:
+  apt:
+    packages:
+      - oracle-java8-set-default
+
+before_script: npm install
+
+script: npm test
