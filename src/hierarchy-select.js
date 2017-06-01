@@ -25,11 +25,10 @@
             this.searchListener();
         },
         initSelect: function() {
-            var item = this.$menuInner.find('li.active:first a');
+            var item = this.$menuInner.find('li[data-default-selected]:first');
             if (item.length) {
-                var value = item.parent().data('value');
-                this.$selectedLabel.html(item.html());
-                this.$hiddenField.val(value);
+                var value = item.data('value');
+                this.setValue(value);
             }
         },
         setWidth: function() {
