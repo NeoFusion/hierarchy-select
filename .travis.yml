@@ -1,11 +1,11 @@
+dist: trusty
+
 language: node_js
 
 node_js: "6"
 
 addons:
-  apt:
-    packages:
-      - oracle-java8-set-default
+  chrome: stable
 
 before_script: npm install
 

@@ -6,10 +6,12 @@ exports.config = {
     './e2e/**/*.spec.js'
   ],
   capabilities: {
-    'browserName': 'phantomjs',
-    'phantomjs.binary.path': require('phantomjs').path,
-    'phantomjs.ghostdriver.cli.args': ['--loglevel=DEBUG']
+    'browserName': 'chrome',
+    chromeOptions: {
+      args: [ "--headless", "--disable-gpu", "--window-size=1920x1080" ]
+    }
   },
+  directConnect: true,
   baseUrl: 'http://localhost:8081/demo',
   framework: 'jasmine',
   jasmineNodeOpts: {
