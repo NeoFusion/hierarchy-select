@@ -86,6 +86,11 @@ describe('Hierarchy select with search and hierarchy', function () {
   });
 
   it('should have the value of an element with the attribute `data-default-selected` be the default value', function () {
-    expect(examplePage.defaultSelected.getAttribute('data-value')).toBe(examplePage.getCurrentValue());
+    examplePage.defaultSelected.isPresent()
+      .then(function (isPresent) {
+        if (isPresent) {
+          expect(examplePage.defaultSelected.getAttribute('data-value')).toBe(examplePage.getCurrentValue());
+        }
+      });
   });
 });
