@@ -7,6 +7,7 @@ module.exports.ExamplePage = function (_section) {
   this.root = element(by.css(section));
 
   // Set references to main elements
+  this.defaultSelected = this.root.element(by.css('[data-default-selected]'));
   this.dropDownButton = this.root.element(by.css('.dropdown-toggle'));
   this.dropDownList = this.root.element(by.css('ul'));
   this.dropDownListElements = this.root.all(by.css('li'));
