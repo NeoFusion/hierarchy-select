@@ -27,8 +27,10 @@
         initSelect: function() {
             var item = this.$menuInner.find('li[data-default-selected]:first');
             if (item.length) {
-                var value = item.data('value');
-                this.setValue(value);
+                this.setValue(item.data('value'));
+            } else {
+                var firstItem = this.$menuInner.find('li:first');
+                this.setValue(firstItem.data('value'));
             }
         },
         setWidth: function() {
