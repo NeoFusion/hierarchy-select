@@ -1,6 +1,6 @@
 {
   "name": "hierarchy-select",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hierarchy Select jQuery Plugin for Twitter Bootstrap 3",
   "author": {
     "name": "Evgeniy NeoFusion",
@@ -29,7 +29,7 @@
   "scripts": {
     "server": "http-server ./docs",
     "server-silent": "http-server ./docs -s -p8081",
-    "postinstall": "./node_modules/.bin/webdriver-manager update",
+    "webdriver-update": "./node_modules/.bin/webdriver-manager update",
     "start": "npm run server",
     "test": "npm run e2e",
     "pree2e": "webdriver-manager update --standalone false --gecko false",

@@ -7,6 +7,8 @@ node_js: "8"
 addons:
   chrome: stable
 
-before_script: npm install
+before_script:
+- npm install
+- npm run webdriver-update
 
 script: npm test
