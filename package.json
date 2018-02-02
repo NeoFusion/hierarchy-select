@@ -1,7 +1,7 @@
 {
   "name": "hierarchy-select",
-  "version": "0.0.1",
-  "description": "Hierarchy Select jQuery Plugin for Twitter Bootstrap",
+  "version": "1.0.0",
+  "description": "Hierarchy Select jQuery Plugin for Twitter Bootstrap 3",
   "author": {
     "name": "Evgeniy NeoFusion",
     "email": "evgeniy@neofusion.ru"
@@ -17,7 +17,8 @@
   },
   "main": "dist/hierarchy-select.min.js",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "keywords": [
     "bootstrap",
