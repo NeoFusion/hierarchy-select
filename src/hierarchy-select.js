@@ -208,7 +208,7 @@
             function disableParents(element) {
                 var item = element;
                 var level = item.data('level');
-                while (typeof item == 'object' && item.length > 0 && level > 1) {
+                while (typeof item === 'object' && item.length > 0 && level > 1) {
                     level--;
                     item = item.prevAll('li[data-level="' + level + '"]:first');
                     if (item.hasClass('hidden')) {
@@ -261,7 +261,7 @@
                     items.each(function() {
                         var item = $(this);
                         var text = item.children('a').text().toLowerCase();
-                        if (text.indexOf(searchString) != -1) {
+                        if (text.indexOf(searchString) !== -1) {
                             item.toggleClass('disabled', false);
                             item.toggleClass('hidden', false);
                             if (that.options.hierarchy) {
@@ -283,11 +283,11 @@
         var chain = this.each(function() {
             var $this   = $(this);
             var data    = $this.data('HierarchySelect');
-            var options = typeof option == 'object'  && option;
+            var options = typeof option === 'object' && option;
             if (!data) {
                 $this.data('HierarchySelect', (data = new HierarchySelect(this, options)));
             }
-            if (typeof option == 'string') {
+            if (typeof option === 'string') {
                 method = data[option].apply(data, args);
             }
         });
