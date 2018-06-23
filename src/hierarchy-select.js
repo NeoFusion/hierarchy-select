@@ -5,9 +5,8 @@
         this.$element = $(element);
         this.options = $.extend({}, $.fn.hierarchySelect.defaults, options);
         this.$button = this.$element.children('button');
-        this.$selectedLabel = this.$button.children('.selected-label');
         this.$menu = this.$element.children('.dropdown-menu');
-        this.$menuInner = this.$menu.children('.inner');
+        this.$menuInner = this.$menu.children('.hs-menu-inner');
         this.$searchbox = this.$menu.find('input');
         this.$hiddenField = this.$element.children('input');
         this.previouslySelected = null;
@@ -25,20 +24,23 @@
             this.searchListener();
         },
         initSelect: function() {
-            var item = this.$menuInner.find('li[data-default-selected]:first');
+            var item = this.$menuInner.find('a[data-default-selected]:first');
             if (item.length) {
                 this.setValue(item.data('value'));
             } else {
-                var firstItem = this.$menuInner.find('li:first');
+                var firstItem = this.$menuInner.find('a:first');
                 this.setValue(firstItem.data('value'));
             }
         },
         setWidth: function() {
+            this.$searchbox.attr('size', 1); // Fix min-width
             if (this.options.width === 'auto') {
                 var width = this.$menu.width();
                 this.$element.css('min-width', width + 2 + 'px');
             } else if (this.options.width) {
                 this.$element.css('width', this.options.width);
+                this.$menu.css('min-width', this.options.width);
+                this.$button.css('width', '100%');
             } else {
                 this.$element.css('min-width', '42px');
             }
@@ -53,14 +55,14 @@
             }
         },
         getText: function() {
-            return this.$selectedLabel.text();
+            return this.$button.text();
         },
         getValue: function() {
             return this.$hiddenField.val();
         },
         setValue: function(value) {
-            var li = this.$menuInner.children('li[data-value="' + value + '"]:first');
-            this.setSelected(li);
+            var a = this.$menuInner.children('a[data-value="' + value + '"]:first');
+            this.setSelected(a);
         },
         enable: function() {
             this.$button.removeAttr('disabled');
@@ -68,21 +70,20 @@
         disable: function() {
             this.$button.attr('disabled', 'disabled');
         },
-        setSelected: function(li) {
-            if (li.length) {
-                var text = li.children('a').text();
-                var value = li.data('value');
-                this.$selectedLabel.html(text);
+        setSelected: function(a) {
+            if (a.length) {
+                var text = a.text();
+                var value = a.data('value');
+                this.$button.html(text);
                 this.$hiddenField.val(value);
-                this.$menuInner.find('.active').removeClass('active');
-                li.addClass('active');
-                this.$element.trigger('change');
+                this.$menu.find('.active').removeClass('active');
+                a.addClass('active');
             }
         },
         moveUp: function () {
-            var items = this.$menuInner.find('li:not(.hidden,.disabled)');
-            var liActive = this.$menuInner.find('.active');
-            var index = items.index(liActive);
+            var items = this.$menuInner.find('a:not(.d-none,.disabled)');
+            var active = this.$menuInner.find('.active');
+            var index = items.index(active);
             if (typeof items[index - 1] !== 'undefined') {
                 this.$menuInner.find('.active').removeClass('active');
                 items[index - 1].classList.add('active');
@@ -90,9 +91,9 @@
             }
         },
         moveDown: function () {
-            var items = this.$menuInner.find('li:not(.hidden,.disabled)');
-            var liActive = this.$menuInner.find('.active');
-            var index = items.index(liActive);
+            var items = this.$menuInner.find('a:not(.d-none,.disabled)');
+            var active = this.$menuInner.find('.active');
+            var index = items.index(active);
             if (typeof items[index + 1] !== 'undefined') {
                 this.$menuInner.find('.active').removeClass('active');
                 if (items[index + 1]) {
@@ -104,7 +105,7 @@
         selectItem: function () {
             var that = this;
             var selected = this.$menuInner.find('.active');
-            if (selected.hasClass('hidden') || selected.hasClass('disabled')) {
+            if (selected.hasClass('d-none') || selected.hasClass('disabled')) {
                 return;
             }
             setTimeout(function() {
@@ -116,16 +117,6 @@
         clickListener: function() {
             var that = this;
             this.$element.on('show.bs.dropdown', function() {
-                var $this = $(this);
-                var scrollTop = $(window).scrollTop();
-                var windowHeight = $(window).height();
-                var upperHeight = $this.offset().top - scrollTop;
-                var elementHeight = $this.outerHeight();
-                var lowerHeight = windowHeight - upperHeight - elementHeight;
-                var dropdownHeight = that.$menu.outerHeight(true);
-                if (lowerHeight < dropdownHeight && upperHeight > dropdownHeight) {
-                    $this.toggleClass('dropup', true);
-                }
                 var selected = that.$menuInner.find('.active');
                 selected && setTimeout(function() {
                     var el = selected[0];
@@ -139,17 +130,13 @@
                 that.previouslySelected = that.$menuInner.find('.active');
                 that.$searchbox.focus();
             });
-            this.$element.on('hidden.bs.dropdown', function() {
-                that.$element.toggleClass('dropup', false);
-            });
-            this.$menuInner.on('click', 'li a', function (e) {
+            this.$menuInner.on('click', 'a', function (e) {
                 e.preventDefault();
                 var $this = $(this);
-                var li = $this.parent();
-                if (li.hasClass('disabled')) {
+                if ($this.hasClass('disabled')) {
                     e.stopPropagation();
                 } else {
-                    that.setSelected(li);
+                    that.setSelected($this);
                 }
             });
         },
@@ -161,18 +148,18 @@
             this.$button.on('keydown', function (e) {
                 switch (e.keyCode) {
                     case 9: // Tab
-                        if (that.$element.hasClass('open')) {
+                        if (that.$element.hasClass('show')) {
                             e.preventDefault();
                         }
                         break;
                     case 13: // Enter
-                        if (that.$element.hasClass('open')) {
+                        if (that.$element.hasClass('show')) {
                             e.preventDefault();
                             that.selectItem();
                         }
                         break;
                     case 27: //Esc
-                        if (that.$element.hasClass('open')) {
+                        if (that.$element.hasClass('show')) {
                             e.preventDefault();
                             e.stopPropagation();
                             that.$button.focus();
@@ -181,14 +168,14 @@
                         }
                         break;
                     case 38: // Up
-                        if (that.$element.hasClass('open')) {
+                        if (that.$element.hasClass('show')) {
                             e.preventDefault();
                             e.stopPropagation();
                             that.moveUp();
                         }
                         break;
                     case 40: // Down
-                        if (that.$element.hasClass('open')) {
+                        if (that.$element.hasClass('show')) {
                             e.preventDefault();
                             e.stopPropagation();
                             that.moveDown();
@@ -202,7 +189,7 @@
         searchListener: function() {
             var that = this;
             if (!this.options.search) {
-                this.$searchbox.parent().toggleClass('hidden', true);
+                this.$searchbox.parent().toggleClass('d-none', true);
                 return;
             }
             function disableParents(element) {
@@ -210,10 +197,10 @@
                 var level = item.data('level');
                 while (typeof item === 'object' && item.length > 0 && level > 1) {
                     level--;
-                    item = item.prevAll('li[data-level="' + level + '"]:first');
-                    if (item.hasClass('hidden')) {
+                    item = item.prevAll('a[data-level="' + level + '"]:first');
+                    if (item.hasClass('d-none')) {
                         item.toggleClass('disabled', true);
-                        item.removeClass('hidden');
+                        item.removeClass('d-none');
                     }
                 }
             }
@@ -250,26 +237,26 @@
             this.$searchbox.on('input propertychange', function (e) {
                 e.preventDefault();
                 var searchString = that.$searchbox.val().toLowerCase();
-                var items = that.$menuInner.find('li');
+                var items = that.$menuInner.find('a');
                 if (searchString.length === 0) {
                     items.each(function() {
                         var item = $(this);
                         item.toggleClass('disabled', false);
-                        item.toggleClass('hidden', false);
+                        item.toggleClass('d-none', false);
                     });
                 } else {
                     items.each(function() {
                         var item = $(this);
-                        var text = item.children('a').text().toLowerCase();
+                        var text = item.text().toLowerCase();
                         if (text.indexOf(searchString) !== -1) {
                             item.toggleClass('disabled', false);
-                            item.toggleClass('hidden', false);
+                            item.toggleClass('d-none', false);
                             if (that.options.hierarchy) {
                                 disableParents(item);
                             }
                         } else {
                             item.toggleClass('disabled', false);
-                            item.toggleClass('hidden', true);
+                            item.toggleClass('d-none', true);
                         }
                     });
                 }
@@ -300,7 +287,7 @@
     $.fn.hierarchySelect = Plugin;
     $.fn.hierarchySelect.defaults = {
         width: 'auto',
-        height: '208px',
+        height: '256px',
         hierarchy: true,
         search: true
     };

@@ -1,3 +1,5 @@
-# Hierarchy Select jQuery Plugin for Twitter Bootstrap 3
+# Hierarchy Select jQuery Plugin for Twitter Bootstrap 4
 
-[![Build Status](https://travis-ci.org/NeoFusion/hierarchy-select.svg?branch=v1)](https://travis-ci.org/NeoFusion/hierarchy-select)
+[![Build Status](https://travis-ci.org/NeoFusion/hierarchy-select.svg?branch=v2)](https://travis-ci.org/NeoFusion/hierarchy-select)
+
+For Bootstrap 3 use [version 1.x](https://github.com/NeoFusion/hierarchy-select/tree/v1).
