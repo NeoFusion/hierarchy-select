@@ -6,6 +6,12 @@
     "name": "Evgeniy NeoFusion",
     "email": "evgeniy@neofusion.ru"
   },
+  "contributors": [
+    {
+      "name": "Sergey Palikhov",
+      "email": "sergeypalihov@gmail.com"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
