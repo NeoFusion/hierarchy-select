@@ -123,7 +123,7 @@
                     var el = selected[0];
                     var p = selected[0].parentNode;
                     if (!(p.scrollTop <= el.offsetTop && (p.scrollTop + p.clientHeight) > el.offsetTop + el.clientHeight)) {
-                        el.parentNode.scrollTop = el.offsetTop
+                        el.parentNode.scrollTop = el.offsetTop - el.parentNode.offsetTop;
                     }
                 }, 0);
             });
@@ -305,8 +305,8 @@
     function processElementOffset(parent, element) {
         if (parent.offsetHeight + parent.scrollTop < element.offsetTop + element.offsetHeight) {
             parent.scrollTop = element.offsetTop + element.offsetHeight - parent.offsetHeight;
-        } else if (parent.scrollTop > element.offsetTop) {
-            parent.scrollTop = element.offsetTop;
+        } else if (parent.scrollTop >= element.offsetTop - parent.offsetTop) {
+            parent.scrollTop = element.offsetTop - parent.offsetTop;
         }
     }
 })(jQuery);
