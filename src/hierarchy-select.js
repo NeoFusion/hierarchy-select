@@ -74,6 +74,7 @@
             if (a.length) {
                 var text = a.text();
                 var value = a.data('value');
+                this.previouslySelected = a;
                 this.$button.html(text);
                 this.$hiddenField.val(value);
                 this.$menu.find('.active').removeClass('active');
@@ -125,6 +126,9 @@
                         el.parentNode.scrollTop = el.offsetTop
                     }
                 }, 0);
+            });
+            this.$element.on('hide.bs.dropdown', function() {
+                that.previouslySelected && that.setSelected(that.previouslySelected);
             });
             this.$element.on('shown.bs.dropdown', function() {
                 that.previouslySelected = that.$menuInner.find('.active');
