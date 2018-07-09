@@ -9,8 +9,8 @@ module.exports.ExamplePage = function (_section) {
   // Set references to main elements
   this.defaultSelected = this.root.element(by.css('[data-default-selected]'));
   this.dropDownButton = this.root.element(by.css('.dropdown-toggle'));
-  this.dropDownList = this.root.element(by.css('ul'));
-  this.dropDownListElements = this.root.all(by.css('li'));
+  this.dropDownList = this.root.element(by.css('.dropdown-menu .hs-menu-inner'));
+  this.dropDownListElements = this.root.all(by.css('a'));
   this.filterInput = this.root.element(by.css('.hs-searchbox input'));
   this.valueHolder = element(by.css(section + ' > input'));
 

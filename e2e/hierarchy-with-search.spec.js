@@ -17,7 +17,7 @@ describe('Hierarchy select with search and hierarchy', function () {
     examplePage.openDropDown();
 
     expect(examplePage.filterInput).toBeActiveElement();
-    expect(examplePage.root).toHaveClass('open');
+    expect(examplePage.root).toHaveClass('show');
   });
 
   it('should close drop-down on ESC or TAB key and set focus on drop-down button', function () {
