@@ -72,6 +72,7 @@
             if (li.length) {
                 var text = li.children('a').text();
                 var value = li.data('value');
+                this.previouslySelected = li;
                 this.$selectedLabel.html(text);
                 this.$hiddenField.val(value);
                 this.$menuInner.find('.active').removeClass('active');
@@ -134,6 +135,9 @@
                         el.parentNode.scrollTop = el.offsetTop
                     }
                 }, 0);
+            });
+            this.$element.on('hide.bs.dropdown', function() {
+                that.previouslySelected && that.setSelected(that.previouslySelected);
             });
             this.$element.on('shown.bs.dropdown', function() {
                 that.previouslySelected = that.$menuInner.find('.active');
