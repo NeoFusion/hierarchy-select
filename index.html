@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hierarchy Select jQuery Plugin for Twitter Bootstrap 4</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="v2/assets/highlight.css">
+    <link rel="stylesheet" href="v2/assets/pygments.css">
+    <link rel="stylesheet" href="v2/dist/hierarchy-select.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Hierarchy Select</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Bootstrap 4 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bootstrap3.html">Bootstrap 3</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/NeoFusion/hierarchy-select">GitHub</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h2 class="mt-4">Live search with hierarchy</h2>
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="dropdown hierarchy-select" id="example-one">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" id="example-one-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                    <div class="dropdown-menu" aria-labelledby="example-one-button">
+                        <div class="hs-searchbox">
+                            <input type="text" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="hs-menu-inner">
+                            <a class="dropdown-item" data-value="" data-level="1" data-default-selected="" href="#">All categories</a>
+                            <a class="dropdown-item" data-value="1" data-level="1" href="#">Wine</a>
+                            <a class="dropdown-item" data-value="2" data-level="2" href="#">Color</a>
+                            <a class="dropdown-item" data-value="3" data-level="3" href="#">Red</a>
+                            <a class="dropdown-item" data-value="4" data-level="3" href="#">White</a>
+                            <a class="dropdown-item" data-value="5" data-level="3" href="#">Rose</a>
+                            <a class="dropdown-item" data-value="6" data-level="2" href="#">Country</a>
+                            <a class="dropdown-item" data-value="7" data-level="3" href="#">Marokko</a>
+                            <a class="dropdown-item" data-value="8" data-level="3" href="#">Russia</a>
+                            <a class="dropdown-item" data-value="9" data-level="2" href="#">Sugar Content</a>
+                            <a class="dropdown-item" data-value="10" data-level="3" href="#">Semi Sweet</a>
+                            <a class="dropdown-item" data-value="11" data-level="3" href="#">Brut</a>
+                            <a class="dropdown-item" data-value="12" data-level="2" href="#">Rating</a>
+                            <a class="dropdown-item" data-value="13" data-level="2" href="#">Grape Sort</a>
+                            <a class="dropdown-item" data-value="14" data-level="3" href="#">Riesling</a>
+                            <a class="dropdown-item" data-value="15" data-level="3" href="#">Aleatico</a>
+                            <a class="dropdown-item" data-value="16" data-level="3" href="#">Bouchet</a>
+                            <a class="dropdown-item" data-value="17" data-level="1" href="#">Whiskey</a>
+                            <a class="dropdown-item" data-value="18" data-level="2" href="#">Country</a>
+                            <a class="dropdown-item" data-value="19" data-level="3" href="#">Ireland</a>
+                            <a class="dropdown-item" data-value="20" data-level="3" href="#">Kanada</a>
+                            <a class="dropdown-item" data-value="21" data-level="3" href="#">Scotland</a>
+                        </div>
+                    </div>
+                    <input class="d-none" name="example_one" readonly="readonly" aria-hidden="true" type="text"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <figure class="highlight">
+<pre><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown hierarchy-select"</span> <span class="na">id</span><span class="o">=</span><span class="s">"example-one"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"button"</span> <span class="na">class</span><span class="o">=</span><span class="s">"btn btn-secondary dropdown-toggle"</span> <span class="na">id</span><span class="o">=</span><span class="s">"example-one-button"</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup</span><span class="o">=</span><span class="s">"true"</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">"false"</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-menu"</span> <span class="na">aria-labelledby</span><span class="o">=</span><span class="s">"example-one-button"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"hs-searchbox"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-control"</span> <span class="na">autocomplete</span><span class="o">=</span><span class="s">"off"</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"hs-menu-inner"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">""</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"1"</span> <span class="na">data-default-selected</span><span class="o">=</span><span class="s">""</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>All categories<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"1"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"1"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Wine<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"2"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"2"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Color<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"3"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Red<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"4"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>White<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"5"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Rose<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"6"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"2"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Country<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"7"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Marokko<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"8"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Russia<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"9"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"2"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Sugar Content<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"10"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Semi Sweet<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"11"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Brut<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"12"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"2"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Rating<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"13"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"2"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Grape Sort<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"14"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Riesling<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"15"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Aleatico<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"16"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Bouchet<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"17"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"1"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Whiskey<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"18"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"2"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Country<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"19"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Ireland<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"20"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Kanada<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"21"</span> <span class="na">data-level</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Scotland<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">"d-none"</span> <span class="na">name</span><span class="o">=</span><span class="s">"example_one"</span> <span class="na">readonly</span><span class="o">=</span><span class="s">"readonly"</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">"true"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span><span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre>
+    </figure>
+    <figure class="highlight">
+<pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#example-one'</span><span class="p">).</span><span class="nx">hierarchySelect</span><span class="p">({</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="s1">'auto'</span>
+<span class="p">});</span></code></pre>
+    </figure>
+    <h2 class="mt-4">Live search without hierarchy</h2>
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="dropdown hierarchy-select" id="example-two">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" id="example-two-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                    <div class="dropdown-menu" aria-labelledby="example-two-button">
+                        <div class="hs-searchbox">
+                            <input type="text" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="hs-menu-inner">
+                            <a class="dropdown-item" data-value="" data-default-selected="" href="#">All colors</a>
+                            <a class="dropdown-item" data-value="1" href="#">Red</a>
+                            <a class="dropdown-item" data-value="2" href="#">Orange</a>
+                            <a class="dropdown-item" data-value="3" href="#">Yellow</a>
+                            <a class="dropdown-item" data-value="4" href="#">Green</a>
+                            <a class="dropdown-item" data-value="5" href="#">Blue</a>
+                            <a class="dropdown-item" data-value="6" href="#">Purple</a>
+                            <a class="dropdown-item" data-value="7" href="#">Pink</a>
+                            <a class="dropdown-item" data-value="8" href="#">Brown</a>
+                            <a class="dropdown-item" data-value="9" href="#">Black</a>
+                            <a class="dropdown-item" data-value="10" href="#">Grey</a>
+                            <a class="dropdown-item" data-value="11" href="#">White</a>
+                        </div>
+                    </div>
+                    <input class="d-none" name="example_two" readonly="readonly" aria-hidden="true" type="text"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <figure class="highlight">
+<pre><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown hierarchy-select"</span> <span class="na">id</span><span class="o">=</span><span class="s">"example-two"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"button"</span> <span class="na">class</span><span class="o">=</span><span class="s">"btn btn-secondary dropdown-toggle"</span> <span class="na">id</span><span class="o">=</span><span class="s">"example-two-button"</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup</span><span class="o">=</span><span class="s">"true"</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">"false"</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-menu"</span> <span class="na">aria-labelledby</span><span class="o">=</span><span class="s">"example-two-button"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"hs-searchbox"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-control"</span> <span class="na">autocomplete</span><span class="o">=</span><span class="s">"off"</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"hs-menu-inner"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">""</span> <span class="na">data-default-selected</span><span class="o">=</span><span class="s">""</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>All colors<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"1"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Red<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"2"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Orange<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Yellow<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"4"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Green<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"5"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Blue<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"6"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Purple<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"7"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Pink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"8"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Brown<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"9"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Black<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"10"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Grey<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"11"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>White<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">"d-none"</span> <span class="na">name</span><span class="o">=</span><span class="s">"example_two"</span> <span class="na">readonly</span><span class="o">=</span><span class="s">"readonly"</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">"true"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span><span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre>
+    </figure>
+    <figure class="highlight">
+<pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#example-two'</span><span class="p">).</span><span class="nx">hierarchySelect</span><span class="p">({</span>
+    <span class="nx">hierarchy</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="s1">'auto'</span>
+<span class="p">});</span></code></pre>
+    </figure>
+    <h2 class="mt-4">Simple select</h2>
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="dropdown hierarchy-select" id="example-three">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" id="example-three-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                    <div class="dropdown-menu" aria-labelledby="example-three-button">
+                        <div class="hs-searchbox">
+                            <input type="text" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="hs-menu-inner">
+                            <a class="dropdown-item" data-value="" data-default-selected="" href="#">All colors</a>
+                            <a class="dropdown-item" data-value="1" href="#">Red</a>
+                            <a class="dropdown-item" data-value="2" href="#">Orange</a>
+                            <a class="dropdown-item" data-value="3" href="#">Yellow</a>
+                            <a class="dropdown-item" data-value="4" href="#">Green</a>
+                            <a class="dropdown-item" data-value="5" href="#">Blue</a>
+                            <a class="dropdown-item" data-value="6" href="#">Purple</a>
+                            <a class="dropdown-item" data-value="7" href="#">Pink</a>
+                            <a class="dropdown-item" data-value="8" href="#">Brown</a>
+                            <a class="dropdown-item" data-value="9" href="#">Black</a>
+                            <a class="dropdown-item" data-value="10" href="#">Grey</a>
+                            <a class="dropdown-item" data-value="11" href="#">White</a>
+                        </div>
+                    </div>
+                    <input class="d-none" name="example_three" readonly="readonly" aria-hidden="true" type="text"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <figure class="highlight">
+<pre><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown hierarchy-select"</span> <span class="na">id</span><span class="o">=</span><span class="s">"example-three"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">"button"</span> <span class="na">class</span><span class="o">=</span><span class="s">"btn btn-secondary dropdown-toggle"</span> <span class="na">id</span><span class="o">=</span><span class="s">"example-three-button"</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup</span><span class="o">=</span><span class="s">"true"</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">"false"</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-menu"</span> <span class="na">aria-labelledby</span><span class="o">=</span><span class="s">"example-three-button"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"hs-searchbox"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span> <span class="na">class</span><span class="o">=</span><span class="s">"form-control"</span> <span class="na">autocomplete</span><span class="o">=</span><span class="s">"off"</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"hs-menu-inner"</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">""</span> <span class="na">data-default-selected</span><span class="o">=</span><span class="s">""</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>All colors<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"1"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Red<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"2"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Orange<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"3"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Yellow<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"4"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Green<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"5"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Blue<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"6"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Purple<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"7"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Pink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"8"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Brown<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"9"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Black<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"10"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>Grey<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"dropdown-item"</span> <span class="na">data-value</span><span class="o">=</span><span class="s">"11"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#"</span><span class="p">&gt;</span>White<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">"d-none"</span> <span class="na">name</span><span class="o">=</span><span class="s">"example_three"</span> <span class="na">readonly</span><span class="o">=</span><span class="s">"readonly"</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">"true"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text"</span><span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre>
+    </figure>
+    <figure class="highlight">
+<pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#example-three'</span><span class="p">).</span><span class="nx">hierarchySelect</span><span class="p">({</span>
+    <span class="nx">hierarchy</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">search</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="mi">200</span>
+<span class="p">});</span></code></pre>
+    </figure>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="v2/dist/hierarchy-select.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example-one').hierarchySelect({
+            width: 'auto'
+        });
+        $('#example-two').hierarchySelect({
+            hierarchy: false,
+            width: 'auto'
+        });
+        $('#example-three').hierarchySelect({
+            hierarchy: false,
+            search: false,
+            width: 200
+        });
+    });
+</script>
+</body>
+</html>
