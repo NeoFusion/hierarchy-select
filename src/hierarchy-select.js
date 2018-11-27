@@ -69,7 +69,7 @@
             this.$button.attr('disabled', 'disabled');
         },
         setSelected: function(li) {
-            if (li.length && this.previouslySelected != li) {
+            if (li.length && this.previouslySelected !== li) {
                 var text = li.children('a').text();
                 var value = li.data('value');
                 this.previouslySelected = li;
