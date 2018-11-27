@@ -132,7 +132,7 @@
                     var el = selected[0];
                     var p = selected[0].parentNode;
                     if (!(p.scrollTop <= el.offsetTop && (p.scrollTop + p.clientHeight) > el.offsetTop + el.clientHeight)) {
-                        el.parentNode.scrollTop = el.offsetTop
+                        el.parentNode.scrollTop = el.offsetTop;
                     }
                 }, 0);
             });
@@ -175,7 +175,7 @@
                             that.selectItem();
                         }
                         break;
-                    case 27: //Esc
+                    case 27: // Esc
                         if (that.$element.hasClass('open')) {
                             e.preventDefault();
                             e.stopPropagation();
@@ -201,7 +201,7 @@
                     default:
                         break;
                 }
-            })
+            });
         },
         searchListener: function() {
             var that = this;
