@@ -162,7 +162,7 @@
                             that.selectItem();
                         }
                         break;
-                    case 27: //Esc
+                    case 27: // Esc
                         if (that.$element.hasClass('show')) {
                             e.preventDefault();
                             e.stopPropagation();
@@ -188,7 +188,7 @@
                     default:
                         break;
                 }
-            })
+            });
         },
         searchListener: function() {
             var that = this;
