@@ -110,7 +110,7 @@
             }
             setTimeout(function() {
                 that.$button.focus();
-            }, 0);
+            }, 5);
             selected && this.setSelected(selected);
             this.$button.dropdown('toggle');
         },
