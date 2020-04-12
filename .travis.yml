@@ -2,7 +2,7 @@ dist: bionic
 
 language: node_js
 
-node_js: "10"
+node_js: "12"
 
 addons:
   chrome: stable
