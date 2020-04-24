@@ -25,7 +25,7 @@
         },
         initSelect: function() {
             var hiddenFieldValue = this.$hiddenField.val();
-            if (hiddenFieldValue && hiddenFieldValue.length > 0) {
+            if (this.options.initialValueSet && hiddenFieldValue && hiddenFieldValue.length > 0) {
                 this.setValue(hiddenFieldValue);
             } else {
                 var item = this.$menuInner.find('a[data-default-selected]:first');
@@ -299,7 +299,8 @@
         width: 'auto',
         height: '256px',
         hierarchy: true,
-        search: true
+        search: true,
+        initialValueSet: false 
     };
     $.fn.hierarchySelect.Constructor = HierarchySelect;
 
