@@ -24,12 +24,17 @@
             this.searchListener();
         },
         initSelect: function() {
-            var item = this.$menuInner.find('a[data-default-selected]:first');
-            if (item.length) {
-                this.setValue(item.data('value'));
+            var hiddenFieldValue = this.$hiddenField.val();
+            if (hiddenFieldValue && hiddenFieldValue.length > 0) {
+                this.setValue(hiddenFieldValue);
             } else {
-                var firstItem = this.$menuInner.find('a:first');
-                this.setValue(firstItem.data('value'));
+                var item = this.$menuInner.find('a[data-default-selected]:first');
+                if (item.length) {
+                    this.setValue(item.data('value'));
+                } else {
+                    var firstItem = this.$menuInner.find('a:first');
+                    this.setValue(firstItem.data('value'));
+                }
             }
         },
         setWidth: function() {
