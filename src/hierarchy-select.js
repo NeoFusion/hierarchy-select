@@ -300,7 +300,7 @@
         height: '256px',
         hierarchy: true,
         search: true,
-        initialValueSet: false 
+        initialValueSet: false
     };
     $.fn.hierarchySelect.Constructor = HierarchySelect;
 
