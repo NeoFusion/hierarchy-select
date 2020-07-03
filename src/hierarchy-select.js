@@ -109,6 +109,9 @@
                 }
             }
         },
+        resetSearch: function() {
+            this.$searchbox.val('').trigger('propertychange');
+        },
         selectItem: function () {
             var that = this;
             var selected = this.$menuInner.find('.active');
@@ -147,6 +150,9 @@
                     e.stopPropagation();
                 } else {
                     that.setSelected($this);
+                    if (that.options.resetSearchOnSelection) {
+                        that.resetSearch();
+                    }
                 }
             });
         },
@@ -300,7 +306,8 @@
         height: '256px',
         hierarchy: true,
         search: true,
-        initialValueSet: false
+        initialValueSet: false,
+        resetSearchOnSelection: false
     };
     $.fn.hierarchySelect.Constructor = HierarchySelect;
 
