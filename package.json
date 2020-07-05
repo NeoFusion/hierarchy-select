@@ -54,6 +54,7 @@
     "http-server": "^0.12.1",
     "jasmine-core": "^3.5.0",
     "jasmine-spec-reporter": "^5.0.2",
+    "node-sass": "^4.14.1",
     "protractor": "^5.4.4"
   }
 }
