@@ -85,6 +85,9 @@
                 this.$menu.find('.active').removeClass('active');
                 if (this.options.onChange) this.options.onChange(value);
                 a.addClass('active');
+                if (this.options.resetSearchOnSelection) {
+                    this.resetSearch();
+                }
             }
         },
         moveUp: function () {
@@ -150,9 +153,6 @@
                     e.stopPropagation();
                 } else {
                     that.setSelected($this);
-                    if (that.options.resetSearchOnSelection) {
-                        that.resetSearch();
-                    }
                 }
             });
         },
