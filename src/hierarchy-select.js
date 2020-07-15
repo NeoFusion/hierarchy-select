@@ -83,11 +83,9 @@
                 this.$button.html(text);
                 this.$hiddenField.val(value);
                 this.$menu.find('.active').removeClass('active');
-                if (this.options.onChange) this.options.onChange(value);
+                if (this.options.onChange) this.options.onChange(value, text);
+                if (this.options.resetSearchOnSelection) this.resetSearch();
                 a.addClass('active');
-                if (this.options.resetSearchOnSelection) {
-                    this.resetSearch();
-                }
             }
         },
         moveUp: function () {
