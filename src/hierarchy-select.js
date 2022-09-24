@@ -66,7 +66,7 @@
             return this.$hiddenField.val();
         },
         setValue: function(value) {
-            var a = this.$menuInner.children('a[data-value="' + value + '"]:first');
+            var a = this.$menuInner.find('a[data-value="' + value + '"]:first');
             this.setSelected(a);
         },
         enable: function() {
