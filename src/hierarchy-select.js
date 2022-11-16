@@ -111,7 +111,7 @@
             setTimeout(function() {
                 that.$button.focus();
             }, 5);
-            selected && this.setSelected(selected);
+            selected.length && this.setSelected(selected);
             this.$button.dropdown('toggle');
         },
         clickListener: function() {
@@ -128,7 +128,7 @@
                     $this.toggleClass('dropup', true);
                 }
                 var selected = that.$menuInner.find('.active');
-                selected && setTimeout(function() {
+                selected.length && setTimeout(function() {
                     var el = selected[0];
                     var p = selected[0].parentNode;
                     if (!(p.scrollTop <= el.offsetTop && (p.scrollTop + p.clientHeight) > el.offsetTop + el.clientHeight)) {
